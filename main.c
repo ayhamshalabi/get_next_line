@@ -4,16 +4,16 @@
 
 int	main(void)
 {
-	int		fd;
 	char	*line;
+	int		fd;
 	int		i;
 
 	printf("--- 1. Invalid FD Test ---\n");
-	printf("fd -1: %s\n\n", get_next_line(-1));
+	printf("fd -1: [%s]\n\n", get_next_line(-1));
 
 	printf("--- 2. Empty File Test ---\n");
 	fd = open("empty.txt", O_RDONLY);
-	printf("empty: %s\n\n", get_next_line(fd));
+	printf("empty: [%s]\n\n", get_next_line(fd));
 	close(fd);
 
 	printf("--- 3. test.txt (BUFFER_SIZE = %d) ---\n", BUFFER_SIZE);
@@ -22,7 +22,7 @@ int	main(void)
 	while (1)
 	{
 		line = get_next_line(fd);
-		printf("Call %2d: [%s]\n", i, line);
+		printf("Call: %d [%s]\n", i, line);
 		if (!line)
 			break ;
 		free(line);

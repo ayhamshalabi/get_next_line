@@ -99,5 +99,5 @@ To solve this while reading as little as possible on each call, our algorithm us
 ### Use of AI
 AI was used as an interactive tutor during this project for the following tasks:
 - **Conceptual Understanding:** Explaining POSIX file descriptors, `open()`, `read()`, `close()`, and how `static` variables behave in memory compared to stack and global variables.
-- **Algorithm Design & Edge-Case Review:** Walking through the 3-step stash/extract/trim logic, verifying 42 Norm constraints, and designing local debug tests (`main.c` and `test.txt`).
+- **Algorithm Design & Edge-Case Review:** Verifying 42 Norm constraints, and designing local debug tests (`main.c` and `test.txt`).
 - **Documentation:** Structuring and formatting this `README.md` according to the Chapter 5 requirements of the subject.

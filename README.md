@@ -97,7 +97,7 @@ To solve this while reading as little as possible on each call, our algorithm us
 - [C Storage-Class Specifiers (`static`) — cppreference](https://en.cppreference.com/w/c/language/storage_duration) — Documentation on static storage duration and block-scope static variables.
 
 ### Use of AI
-AI was used sparingly as a supplementary reference tool for:
-- Clarifying theoretical POSIX concepts (`read()`, file descriptor tables, and `static` variable storage duration).
-- Generating sample text files (`test.txt`) for local edge-case testing.
-- Proofreading and formatting this `README.md`.
+AI was used as an interactive tutor during this project for the following tasks:
+- **Conceptual Understanding:** Explaining POSIX file descriptors, `open()`, `read()`, `close()`, and how `static` variables behave in memory compared to stack and global variables.
+- **Algorithm Design & Edge-Case Review:** Walking through the 3-step stash/extract/trim logic, verifying 42 Norm constraints, and designing local debug tests (`main.c` and `test.txt`).
+- **Documentation:** Structuring and formatting this `README.md` according to the Chapter 5 requirements of the subject.

@@ -1,0 +1,9 @@
+1. Normal short line.
+2. Second normal line.
+
+
+5. Above me were two empty lines (\n only).
+X
+7. Above me was a 1-character line. Below is a very long line:
+8. ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_END_OF_LONG_LINE
+9. END_WITHOUT_NEWLINE

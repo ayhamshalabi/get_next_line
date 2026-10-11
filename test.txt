@@ -1,4 +1,4 @@
-1. Normal short line.
+1. Standard short line.
 2. Second normal line.
 
 

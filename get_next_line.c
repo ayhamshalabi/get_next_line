@@ -1,23 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/26 16:59:02 by ayhshala          #+#    #+#             */
-/*   Updated: 2026/09/26 16:59:02 by ayhshala         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
 
+/*Reads chunks from file descriptor and appends to accumulated buffer*/
 static char	*read_and_save(int fd, char *saved)
 {
 	char	*buffer;
 	ssize_t	bytes_read;
 
-	buffer = malloc(BUFFER_SIZE + 1);
+	buffer = malloc((size_t)BUFFER_SIZE + 1);
 	if (!buffer)
 	{
 		free(saved);
@@ -36,18 +25,24 @@ static char	*read_and_save(int fd, char *saved)
 			break ;
 		buffer[bytes_read] = '\0';
 		saved = ft_strjoin(saved, buffer);
+		if (!saved)
+		{
+			free(buffer);
+			return (NULL);
+		}
 	}
 	free(buffer);
 	return (saved);
 }
 
+/*Extracts single newline-terminated line from accumulated buffer*/
 static char	*extract_line(char *saved)
 {
 	char	*line;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	if (!saved[i])
+	if (!saved || !saved[i])
 		return (NULL);
 	while (saved[i] && saved[i] != '\n')
 		i++;
@@ -66,11 +61,12 @@ static char	*extract_line(char *saved)
 	return (line);
 }
 
+/*Trims extracted line and preserves unread leftover bytes*/
 static char	*keep_leftovers(char *saved)
 {
 	char	*new_saved;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (saved[i] && saved[i] != '\n')
@@ -95,12 +91,13 @@ static char	*keep_leftovers(char *saved)
 	return (new_saved);
 }
 
+/*Reads and returns next line from given file descriptor*/
 char	*get_next_line(int fd)
 {
 	static char	*saved;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 0x7FFFFFFF)
 		return (NULL);
 	saved = read_and_save(fd, saved);
 	if (!saved)

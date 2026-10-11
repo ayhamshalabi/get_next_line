@@ -1,0 +1,21 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+
+# Executables & test binaries
+*.out
+*.exe
+test_runner
+gnl
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDE & Editor configurations
+.vscode/
+.idea/
+*.swp
+*~
